@@ -1,14 +1,18 @@
-<h2>Mes pokémons !</h2>
 <ng-container>
-  <mat-nav-list infiniteScroll (scrolled)="onScroll()">
-    <mat-list-item *ngFor="let pokemon of pokemons">
+
+  <div class="search">
+    <label>Recherche :
+      <input [(ngModel)]="search" (ngModelChange)="searchPokemons()" placeholder="ID ou Nom">
+    </label>
+  </div>
+
+  <mat-nav-list class="pokemon-list" infiniteScroll [scrollWindow]="false" (scrolled)="onScroll()">
+    <mat-list-item *ngFor="let pokemon of pokemons" (click)="sendId(pokemon.id)">
       <img matListAvatar src="assets/img/sprites/{{pokemon.id}}.png">
-      <a routerLink="/detail/{{pokemon.id}}">
-        <p matLine>
-          <span> {{pokemon.id}} </span>
-          <span> {{pokemon.name}} </span>
-        </p>
-      </a>
+      <p matLine>
+        <span> {{pokemon.id}} </span>
+        <span> {{pokemon.name}} </span>
+      </p>
     </mat-list-item>
   </mat-nav-list>
 </ng-container>

@@ -12,9 +12,12 @@ import { MatGridListModule } from '@angular/material/grid-list'
 import { MatChipsModule } from '@angular/material/chips'
 import { MatIconModule } from '@angular/material/icon'
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
-  declarations: [PokemonListComponent, PokemonDetailComponent],
+  declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -25,11 +28,14 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     MatGridListModule,
     MatChipsModule,
     MatIconModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatSidenavModule,
+    FormsModule
   ],
   exports : [
     PokemonListComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    PokedexComponent
   ]
 })
 export class PokemonsModule { }

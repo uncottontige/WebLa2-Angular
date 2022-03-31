@@ -14,10 +14,10 @@ export class PokemonService {
   private urlPokemons = "http://app-ec21e68e-3e55-42d7-b1ae-3eef7507a353.cleverapps.io";
 
   getPokemons(offset: number): Observable<PagedData<Pokemon>> {
-     
-      return this.http.get<PagedData<Pokemon>>(`${this.urlPokemons}/pokemons?offset=${offset}&limit=20`).pipe(
-        catchError(this.handleError<PagedData<Pokemon>>('getPokemons'))
-      );
+
+    return this.http.get<PagedData<Pokemon>>(`${this.urlPokemons}/pokemons?offset=${offset}&limit=20`).pipe(
+      catchError(this.handleError<PagedData<Pokemon>>('getPokemons'))
+    );
 
   }
 
@@ -31,11 +31,19 @@ export class PokemonService {
   private handleError<T>(operation = 'operation', result?: T): (error: any) => Observable<T> {
     return (error: any): Observable<T> => {
 
-      console.error(error); 
+      console.error(error);
 
       return of(result as T);
     };
   }
 
+
+  searchPokemons(search: string): Observable<PagedData<Pokemon>> {
+
+    return this.http.get<PagedData<Pokemon>>(`${this.urlPokemons}/pokemons?search=${search}`).pipe(
+      catchError(this.handleError<PagedData<Pokemon>>('searchPokemons'))
+    )
+
+  }
 
 }
