@@ -1,0 +1,12 @@
+<h2 id="title">Pokédex !</h2>
+<mat-drawer-container class="container">
+
+    <mat-drawer mode="side" opened class="listePokemons">
+        <app-pokemon-list (id) = "getId($event)"></app-pokemon-list>
+    </mat-drawer>
+
+    <mat-drawer-content class="detail">
+        <app-pokemon-detail [id]="id"></app-pokemon-detail>
+    </mat-drawer-content>
+
+</mat-drawer-container>

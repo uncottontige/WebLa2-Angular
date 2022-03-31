@@ -1,0 +1,18 @@
+<ng-container>
+
+  <div class="search">
+    <label>Recherche :
+      <input [(ngModel)]="search" (ngModelChange)="searchPokemons()" placeholder="ID ou Nom">
+    </label>
+  </div>
+
+  <mat-nav-list class="pokemon-list" infiniteScroll [scrollWindow]="false" (scrolled)="onScroll()">
+    <mat-list-item *ngFor="let pokemon of pokemons" (click)="sendId(pokemon.id)">
+      <img matListAvatar src="assets/img/sprites/{{pokemon.id}}.png">
+      <p matLine>
+        <span> {{pokemon.id}} </span>
+        <span> {{pokemon.name}} </span>
+      </p>
+    </mat-list-item>
+  </mat-nav-list>
+</ng-container>
