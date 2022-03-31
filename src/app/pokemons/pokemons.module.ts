@@ -14,10 +14,11 @@ import { MatIconModule } from '@angular/material/icon'
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { TeamComponent } from './components/team/team.component'
 
 @NgModule({
-  declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent],
+  declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent, TeamComponent],
   imports: [
     CommonModule,
     HttpClientModule,
